@@ -152,7 +152,7 @@ public class WallDrill {
 
             BuildPlan buildPlan = new BuildPlan(beamNodeTile.x, beamNodeTile.y, 0, Blocks.beamNode);
             if (buildPlan.placeable(Vars.player.team())) { Vars.player.unit().addBuild(buildPlan); };
-            while (beamNodeTile.dst(boreTile) > 10 * Vars.tileSize) {
+            while (beamNodeTile.dst(boreTile) > 10 * 8) {
                 beamNodeTile = beamNodeTile.nearby(direction.p.x * 5, direction.p.y * 5);
                 if (beamNodeTile == null) break;
 
