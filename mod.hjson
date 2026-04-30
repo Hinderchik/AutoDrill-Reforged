@@ -1,5 +1,5 @@
 displayName: "AutoDrill Reforged"
-name: "AutoDrill-Reforged"
+name: "auto-drill-reforged"
 author: "Pointifix"
 main: "autodrill.AutoDrill"
 description: "Adds tools for automatically filling resource patches with drills"
