@@ -1,4 +1,4 @@
-# Auto Drill
+# Auto Drill Reforged
 
 [![GitHub all releases](https://img.shields.io/github/downloads/Pointifix/AutoDrill/total)](https://github.com/Pointifix/AutoDrill/releases)
 ![GitHub Repo stars](https://img.shields.io/github/stars/Pointifix/AutoDrill?style=social)
