@@ -157,7 +157,7 @@ public class AutoDrill extends Mod {
 
                 updateSelectTable();
 
-                Vec2 v = Core.camera.project(selectedTile.centerX() * Vars.tilesize, (selectedTile.centerY() + 1) * Vars.tilesize);
+                Vec2 v = Core.camera.project(selectedTile.centerX() * Vars.world.tileSize(), (selectedTile.centerY() + 1) * Vars.world.tileSize());
                 selectTable.setPosition(v.x, v.y, Align.bottom);
                 directionTable.setPosition(v.x, v.y, Align.bottom);
 
@@ -165,7 +165,7 @@ public class AutoDrill extends Mod {
             }
         });
 
-        ui.hudGroup.fill(t -> {
+        ui.hudgroup.fill(t -> {
             enableButton = t.button(new TextureRegionDrawable(Core.atlas.find("auto-drill-logo")), Styles.emptyTogglei, () -> {
                 enabled = !enabled;
                 selectTable.visible = false;
@@ -186,7 +186,7 @@ public class AutoDrill extends Mod {
                 selectTable.visible = false;
                 return;
             }
-            Vec2 v = Core.camera.project(selectedTile.centerX() * Vars.tilesize, (selectedTile.centerY() + 1) * Vars.tilesize);
+            Vec2 v = Core.camera.project(selectedTile.centerX() * Vars.world.tileSize(), (selectedTile.centerY() + 1) * Vars.world.tileSize());
             selectTable.setPosition(v.x, v.y, Align.bottom);
         });
 
@@ -311,7 +311,7 @@ public class AutoDrill extends Mod {
                 directionTable.visible = false;
                 return;
             }
-            Vec2 v = Core.camera.project(selectedTile.centerX() * Vars.tilesize, (selectedTile.centerY() + 1) * Vars.tilesize);
+            Vec2 v = Core.camera.project(selectedTile.centerX() * Vars.world.tileSize(), (selectedTile.centerY() + 1) * Vars.world.tileSize());
             directionTable.setPosition(v.x, v.y, Align.bottom);
         });
 

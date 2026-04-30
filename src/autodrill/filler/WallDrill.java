@@ -124,12 +124,12 @@ public class WallDrill {
 
             if (tile2.equals(outerMostDuctTile)) {
                 BuildPlan buildPlan = new BuildPlan(tile2.x, tile2.y, directionOpposite.r, Blocks.duct);
-                Vars.player.unit().addBuild(buildPlan);
+                if (buildPlan.placeable(Vars.player.team())) { Call.build(Vars.player, buildPlan); };
                 buildPlan = new BuildPlan(tile2.x + directionOpposite.p.x, tile2.y + directionOpposite.p.y, directionOpposite.r, Blocks.duct);
-                Vars.player.unit().addBuild(buildPlan);
+                if (buildPlan.placeable(Vars.player.team())) { Call.build(Vars.player, buildPlan); };
             } else {
                 BuildPlan buildPlan = new BuildPlan(tile2.x, tile2.y, tile2.relativeTo(tile1), Blocks.duct);
-                Vars.player.unit().addBuild(buildPlan);
+                if (buildPlan.placeable(Vars.player.team())) { Call.build(Vars.player, buildPlan); };
             }
         }
 
@@ -140,7 +140,7 @@ public class WallDrill {
             if (neighbor == null) continue;
 
             BuildPlan buildPlan = new BuildPlan(ductTile.x, ductTile.y, ductTile.relativeTo(neighbor), Blocks.duct);
-            Vars.player.unit().addBuild(buildPlan);
+            if (buildPlan.placeable(Vars.player.team())) { Call.build(Vars.player, buildPlan); };
         }
 
         Tile outerMost = boreTiles.max(t -> -direction.primaryAxis(new Point2(t.x, t.y)));
@@ -151,19 +151,19 @@ public class WallDrill {
             if (beamNodeTile == null) continue;
 
             BuildPlan buildPlan = new BuildPlan(beamNodeTile.x, beamNodeTile.y, 0, Blocks.beamNode);
-            Vars.player.unit().addBuild(buildPlan);
-            while (beamNodeTile.dst(boreTile) > 10 * Vars.tilesize) {
+            if (buildPlan.placeable(Vars.player.team())) { Call.build(Vars.player, buildPlan); };
+            while (beamNodeTile.dst(boreTile) > 10 * Vars.world.tileSize()) {
                 beamNodeTile = beamNodeTile.nearby(direction.p.x * 5, direction.p.y * 5);
                 if (beamNodeTile == null) break;
 
                 buildPlan = new BuildPlan(beamNodeTile.x, beamNodeTile.y, 0, Blocks.beamNode);
-                Vars.player.unit().addBuild(buildPlan);
+                if (buildPlan.placeable(Vars.player.team())) { Call.build(Vars.player, buildPlan); };
             }
         }
 
         for (Tile boreTile : boreTiles) {
             BuildPlan buildPlan = new BuildPlan(boreTile.x, boreTile.y, direction.r, drill);
-            Vars.player.unit().addBuild(buildPlan);
+            if (buildPlan.placeable(Vars.player.team())) { Call.build(Vars.player, buildPlan); };
         }
     }
 

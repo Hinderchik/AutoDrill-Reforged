@@ -71,7 +71,7 @@ public class BridgeDrill {
 
         for (Tile drillTile : drillTiles) {
             BuildPlan buildPlan = new BuildPlan(drillTile.x, drillTile.y, 0, drill);
-            Vars.player.unit().addBuild(buildPlan);
+            if (buildPlan.placeable(Vars.player.team())) { Call.build(Vars.player, buildPlan); };
         }
 
         for (Tile bridgeTile : bridgeTiles) {
@@ -83,7 +83,7 @@ public class BridgeDrill {
             }
 
             BuildPlan buildPlan = new BuildPlan(bridgeTile.x, bridgeTile.y, 0, Blocks.itemBridge, config);
-            Vars.player.unit().addBuild(buildPlan);
+            if (buildPlan.placeable(Vars.player.team())) { Call.build(Vars.player, buildPlan); };
         }
     }
 
