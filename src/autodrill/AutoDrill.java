@@ -157,7 +157,7 @@ public class AutoDrill extends Mod {
 
                 updateSelectTable();
 
-                Vec2 v = Core.camera.project(selectedTile.centerX() * Vars.world.tileSize, (selectedTile.centerY() + 1) * Vars.world.tileSize);
+                Vec2 v = Core.camera.project(selectedTile.centerX() * Vars.tileSize, (selectedTile.centerY() + 1) * Vars.tileSize);
                 selectTable.setPosition(v.x, v.y, Align.bottom);
                 directionTable.setPosition(v.x, v.y, Align.bottom);
 
@@ -186,7 +186,7 @@ public class AutoDrill extends Mod {
                 selectTable.visible = false;
                 return;
             }
-            Vec2 v = Core.camera.project(selectedTile.centerX() * Vars.world.tileSize, (selectedTile.centerY() + 1) * Vars.world.tileSize);
+            Vec2 v = Core.camera.project(selectedTile.centerX() * Vars.tileSize, (selectedTile.centerY() + 1) * Vars.tileSize);
             selectTable.setPosition(v.x, v.y, Align.bottom);
         });
 
@@ -311,7 +311,7 @@ public class AutoDrill extends Mod {
                 directionTable.visible = false;
                 return;
             }
-            Vec2 v = Core.camera.project(selectedTile.centerX() * Vars.world.tileSize, (selectedTile.centerY() + 1) * Vars.world.tileSize);
+            Vec2 v = Core.camera.project(selectedTile.centerX() * Vars.tileSize, (selectedTile.centerY() + 1) * Vars.tileSize);
             directionTable.setPosition(v.x, v.y, Align.bottom);
         });
 

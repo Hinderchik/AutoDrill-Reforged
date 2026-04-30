@@ -56,7 +56,7 @@ public class OptimizationDrill {
 
         for (Tile t : selection) {
             BuildPlan buildPlan = new BuildPlan(t.x, t.y, 0, drill);
-            if (buildPlan.placeable(Vars.player.team())) { Call.buildPlace(Vars.player, buildPlan); };
+            if (buildPlan.placeable(Vars.player.team())) { Vars.player.unit().addBuild(buildPlan); };
         }
     }
 
@@ -137,12 +137,12 @@ public class OptimizationDrill {
 
         for (Tile waterExtractorTile : waterExtractorTiles) {
             BuildPlan buildPlan = new BuildPlan(waterExtractorTile.x, waterExtractorTile.y, 0, Blocks.waterExtractor);
-            if (buildPlan.placeable(Vars.player.team())) { Call.buildPlace(Vars.player, buildPlan); };
+            if (buildPlan.placeable(Vars.player.team())) { Vars.player.unit().addBuild(buildPlan); };
         }
 
         for (Tile powerNodeTile : powerNodeTiles) {
             BuildPlan buildPlan = new BuildPlan(powerNodeTile.x, powerNodeTile.y, 0, Blocks.powerNode);
-            if (buildPlan.placeable(Vars.player.team())) { Call.buildPlace(Vars.player, buildPlan); };
+            if (buildPlan.placeable(Vars.player.team())) { Vars.player.unit().addBuild(buildPlan); };
         }
     }
 }

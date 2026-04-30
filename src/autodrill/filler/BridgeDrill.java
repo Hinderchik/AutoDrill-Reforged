@@ -6,7 +6,6 @@ import arc.struct.ObjectIntMap;
 import arc.struct.Seq;
 import mindustry.Vars;
 import mindustry.content.Blocks;
-import mindustry.gen.Call;
 import mindustry.entities.units.BuildPlan;
 import mindustry.type.Item;
 import mindustry.world.Tile;
@@ -72,7 +71,7 @@ public class BridgeDrill {
 
         for (Tile drillTile : drillTiles) {
             BuildPlan buildPlan = new BuildPlan(drillTile.x, drillTile.y, 0, drill);
-            if (buildPlan.placeable(Vars.player.team())) { Call.buildPlace(Vars.player, buildPlan); };
+            if (buildPlan.placeable(Vars.player.team())) { Vars.player.unit().addBuild(buildPlan); };
         }
 
         for (Tile bridgeTile : bridgeTiles) {
@@ -84,7 +83,7 @@ public class BridgeDrill {
             }
 
             BuildPlan buildPlan = new BuildPlan(bridgeTile.x, bridgeTile.y, 0, Blocks.itemBridge, config);
-            if (buildPlan.placeable(Vars.player.team())) { Call.buildPlace(Vars.player, buildPlan); };
+            if (buildPlan.placeable(Vars.player.team())) { Vars.player.unit().addBuild(buildPlan); };
         }
     }
 
