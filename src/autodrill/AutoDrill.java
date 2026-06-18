@@ -124,7 +124,7 @@ public class AutoDrill extends Mod {
 
             settingsTable.add(settings);
         };
-        ui.settings.getCategories().add(new SettingsMenuDialog.SettingsCategory(bundle.get("auto-drill.settings.title"), new TextureRegionDrawable(Core.atlas.find("logo")), builder));
+        ui.settings.getCategories().add(new SettingsMenuDialog.SettingsCategory(bundle.get("auto-drill.settings.title"), new TextureRegionDrawable(Core.atlas.find("drillogo")), builder));
 
         // Activation
         Core.scene.addListener(new InputListener() {
@@ -166,7 +166,7 @@ public class AutoDrill extends Mod {
         });
 
         ui.hudGroup.fill(t -> {
-            enableButton = t.button(new TextureRegionDrawable(Core.atlas.find("logo")), Styles.emptyTogglei, () -> {
+            enableButton = t.button(new TextureRegionDrawable(Core.atlas.find("drillogo")), Styles.emptyTogglei, () -> {
                 enabled = !enabled;
                 selectTable.visible = false;
                 directionTable.visible = false;
